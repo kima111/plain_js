@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  #modal{
+    position: absolute;
+    top: 15vh;
+    left: 40vw;
+    width: 25vw;
+    height: 500px;
+    padding: 25px;
+    background-color: rgba(0,0,0,0.5);
+  }
+  #modal-close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    }
+  .button-1{
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    
+  }
+  .button-2{
+    position: absolute;
+    top: 80%;
+    right: 5%;
+    
+  }
+  h1{
+    text-align: center;
+  }
+  
+    </style>
+</head>
+<body>
+    <button onClick="showModal()">show modal</button>
+    <div id="modal">
+        <button id="modal-close" onClick="closeModal()">X</button>
+        <h1>This is a Modal</h1>
+        <button onClick="getData()" class="button-1">Button 1</button>
+        <button class="button-2">Button 2</button>
+        <hr />
+        <div id="modal-info"></div>
+      </div>  
+      <script>
+        async function getData(){
+        try{
+        fetch("https://reqres.in/api/products/3")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("modal-info").innerHTML = data.data.year
+                console.log(data.data.year)
+                
+            })
+        .catch(error => console.error(error))
+        }
+        catch{
+            console.log(error)
+        }
+        }
+        function closeModal(){
+            document.getElementById("modal").style.display = "none";
+        }
+        function showModal(){
+            document.getElementById("modal").style.display = "";
+        }
+      </script>
+</body>
+</html>
