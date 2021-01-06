@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const timeNow = Date.now();
+        const today = new Date(timeNow);
+        const todayFormatted = today.toLocaleDateString();
+
+        sayHappyBirthday = todaysDate => {
+            if (todaysDate === '1/4/2021') {
+                return 'Happy Birthday'
+            }
+            else {
+                return 'Get back to work!'
+            }
+        }
+
+        console.log(sayHappyBirthday(todayFormatted));
+    </script>
+</body>
+
+</html>
